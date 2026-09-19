@@ -57,12 +57,6 @@ export const profile = {
   /** Shown in the contact block. */
   availability: "Open to engineering roles, and to building something with you.",
 
-  resume: {
-    label: "View résumé",
-    href: "/aliddeki-mulindwa-bryan-resume.pdf",
-    asset: true,
-  } as const satisfies Link,
-
   socials: [
     { label: "GitHub", href: "https://github.com/baliddeki", external: true },
     {

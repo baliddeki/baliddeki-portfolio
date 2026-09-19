@@ -1,4 +1,3 @@
-import { ActionLink } from "@/components/ui/action-link";
 import { profile } from "@/content/profile";
 
 /**
@@ -15,15 +14,11 @@ export function ContactBlock({ headingLevel = "h2" }: { headingLevel?: "h1" | "h
           {profile.availability}
         </Heading>
 
-        <div className="flex flex-col gap-3">
+        <div>
           <p className="font-display text-lead font-normal">
             <a className="link-underline" href={`mailto:${profile.email}`}>
               {profile.email}
             </a>
-          </p>
-
-          <p className="font-body text-body">
-            <ActionLink link={profile.resume} />
           </p>
         </div>
       </div>
