@@ -25,10 +25,10 @@ scripts/        post-export step for GitHub Pages
 ```
 
 The one rule everything else follows: **content is data, components are
-presentation.** Adding a project means adding an object to
-`src/content/projects.ts` — no component is edited, and the type system decides
-whether the entry is complete. The same content modules feed the pages, the
-sitemap and the JSON-LD, so the three cannot drift apart.
+presentation.** Adding a project, article or talk means adding an object to
+`src/content/` — no component is edited, and the type system decides whether
+the entry is complete. The same content modules feed the pages, the sitemap
+and the JSON-LD, so the three cannot drift apart.
 
 ### Design
 
@@ -40,9 +40,15 @@ values or font sizes in component code.
 
 The type scale is fluid — each step `clamp()`s between a comfortable phone size
 and the exact desktop value from the design — so the layout has no breakpoint
-at which it visibly jumps. Project rows are a two-column grid on desktop and a
-single stack below it, with the mobile reading order preserved in the DOM and
-the desktop arrangement expressed through grid placement alone.
+at which it visibly jumps. Rows are a two-column grid on desktop and a single
+stack below it.
+
+The work index is typographic rather than illustrated: a project is its name,
+its status, what it does and the domain you land on. That keeps every row at
+the same weight whether or not the work has a public URL, and means the list
+never depends on an asset existing. Where a project does have a link, that
+link is stretched across the whole row — one anchor in the markup, the entire
+row as the target.
 
 ### Performance
 
@@ -53,7 +59,8 @@ the desktop arrangement expressed through grid placement alone.
 - **Fonts are self-hosted** by `next/font` at build time — no third-party
   request on first paint, and no flash of unstyled text.
 - **CSS is inlined** into each document, removing a render-blocking request.
-- **Images carry explicit dimensions**, so nothing shifts as they load.
+- **No images at all** in the work index, so there is nothing to lazy-load,
+  crop or art-direct — the page is text and hairlines.
 
 ### SEO
 
@@ -85,5 +92,5 @@ every directory starting with an underscore — including `_next`.
 | Bio, skills, email, socials, résumé | `src/content/profile.ts` |
 | Projects | `src/content/projects.ts` |
 | Articles | `src/content/writing.ts` |
+| Talks | `src/content/talks.ts` |
 | Navigation and routes | `src/content/navigation.ts` |
-| Project screenshots | `public/work/` — see [docs/project-images.md](docs/project-images.md) |
