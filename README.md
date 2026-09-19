@@ -86,4 +86,4 @@ every directory starting with an underscore — including `_next`.
 | Projects | `src/content/projects.ts` |
 | Articles | `src/content/writing.ts` |
 | Navigation and routes | `src/content/navigation.ts` |
-| Project screenshots | `public/work/` — see the README there |
+| Project screenshots | `public/work/` — see [docs/project-images.md](docs/project-images.md) |
