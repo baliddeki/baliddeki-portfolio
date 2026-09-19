@@ -1,4 +1,5 @@
 import { articles } from "@/content/writing";
+import { talks } from "@/content/talks";
 import { profile } from "@/content/profile";
 import { projects } from "@/content/projects";
 import { absoluteUrl, siteConfig } from "@/lib/site";
@@ -62,6 +63,17 @@ export function StructuredData() {
         description: project.summary,
         creator: { "@id": personId },
         ...(project.link && { url: project.link.href }),
+      })),
+      ...talks.map((talk) => ({
+        "@type": "Event",
+        name: talk.title,
+        description: talk.summary,
+        startDate: talk.date,
+        eventAttendanceMode:
+          "https://schema.org/OnlineEventAttendanceMode",
+        location: { "@type": "VirtualLocation", name: talk.event },
+        performer: { "@id": personId },
+        ...(talk.link && { url: talk.link.href }),
       })),
       ...articles.map((article) => ({
         "@type": "Article",

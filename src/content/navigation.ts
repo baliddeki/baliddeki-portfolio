@@ -9,5 +9,6 @@ export const navigation: readonly NavigationItem[] = [
   { label: "Work", href: "/" },
   { label: "About", href: "/about" },
   { label: "Writing", href: "/writing" },
+  { label: "Speaking", href: "/speaking" },
   { label: "Contact", href: "/contact" },
 ] as const;
