@@ -113,6 +113,18 @@
   border-bottom: 1.5px solid var(--color-ink);
 }
 
+@utility stretched {
+  /* Expands a link's hit area to cover its nearest positioned ancestor, so a
+     whole list row is clickable while the document still contains exactly one
+     anchor — no nested interactive elements, and nothing for a screen reader
+     to read twice. */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+}
+
 @utility link-underline {
   /* Underline that grows from the left on hover — the one piece of motion on
      the site, and it is CSS-only. */

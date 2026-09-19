@@ -3,10 +3,9 @@ import type { Project } from "@/lib/types";
 /**
  * The work, ordered by how many people actually use it.
  *
- * To add a screenshot, drop the file in `public/work/` and add an `image`
- * block — the dimensions are required so the browser reserves the space
- * before the file loads. Entries without an `image` render a labelled
- * placeholder, so a missing asset can never break the page.
+ * The index is typographic: a project is its name, what it does and where it
+ * lives. Entries with no `link` show their status instead, so every row
+ * carries the same weight.
  */
 export const projects: readonly Project[] = [
   {
@@ -21,12 +20,6 @@ export const projects: readonly Project[] = [
       href: "https://www.dealzako.com",
       external: true,
     },
-    image: {
-      src: "/work/dealzako.webp",
-      alt: "The DealZako brand mark and strapline",
-      width: 1200,
-      height: 630,
-    },
   },
   {
     slug: "fpl-squadpilot",
@@ -40,12 +33,6 @@ export const projects: readonly Project[] = [
       href: "https://play.google.com/store/apps/details?id=com.baliddeki.fplsquadpilot",
       external: true,
     },
-    image: {
-      src: "/work/fpl-squadpilot.webp",
-      alt: "Three SquadPilot screens: the transfer planner, the league table and a live gameweek squad",
-      width: 1600,
-      height: 900,
-    },
   },
   {
     slug: "ari-gold-bot",
@@ -58,12 +45,6 @@ export const projects: readonly Project[] = [
       label: "View on MQL5 Market",
       href: "https://www.mql5.com/en/market/product/188554",
       external: true,
-    },
-    image: {
-      src: "/work/ari-gold-bot.webp",
-      alt: "The Ari Gold Bot product mark",
-      width: 1280,
-      height: 720,
     },
   },
   {
