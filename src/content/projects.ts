@@ -10,6 +10,25 @@ import type { Project } from "@/lib/types";
  */
 export const projects: readonly Project[] = [
   {
+    slug: "dealzako",
+    name: "DealZako",
+    summary:
+      "A platform for real estate brokers — listings, deals and commissions out of WhatsApp threads and into one place. I led a team of three; live, and in pilot with Eliberts Real Estate.",
+    stack: ["Team lead", "Real estate", "Live"],
+    status: "live",
+    link: {
+      label: "Visit dealzako.com",
+      href: "https://www.dealzako.com",
+      external: true,
+    },
+    image: {
+      src: "/work/dealzako.webp",
+      alt: "The DealZako brand mark and strapline",
+      width: 1200,
+      height: 630,
+    },
+  },
+  {
     slug: "fpl-squadpilot",
     name: "FPL SquadPilot",
     summary:
@@ -45,25 +64,6 @@ export const projects: readonly Project[] = [
       alt: "The Ari Gold Bot product mark",
       width: 1280,
       height: 720,
-    },
-  },
-  {
-    slug: "dealzako",
-    name: "DealZako",
-    summary:
-      "A platform for real estate brokers — listings, deals and commissions out of WhatsApp threads and into one place. I led a team of three; live, and in pilot with Eliberts Real Estate.",
-    stack: ["Team lead", "Real estate", "Live"],
-    status: "live",
-    link: {
-      label: "Visit dealzako.com",
-      href: "https://www.dealzako.com",
-      external: true,
-    },
-    image: {
-      src: "/work/dealzako.webp",
-      alt: "The DealZako brand mark and strapline",
-      width: 1200,
-      height: 630,
     },
   },
   {
