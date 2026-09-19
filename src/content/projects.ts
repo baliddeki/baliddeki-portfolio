@@ -5,17 +5,8 @@ import type { Project } from "@/lib/types";
  *
  * To add a screenshot, drop the file in `public/work/` and add an `image`
  * block — the dimensions are required so the browser reserves the space
- * before the file loads:
- *
- *   image: {
- *     src: "/work/squadpilot.png",
- *     alt: "The SquadPilot transfer planner",
- *     width: 1280,
- *     height: 720,
- *   },
- *
- * Entries without an `image` render a labelled placeholder, so a missing
- * asset can never break the page.
+ * before the file loads. Entries without an `image` render a labelled
+ * placeholder, so a missing asset can never break the page.
  */
 export const projects: readonly Project[] = [
   {
@@ -30,6 +21,12 @@ export const projects: readonly Project[] = [
       href: "https://play.google.com/store/apps/details?id=com.baliddeki.fplsquadpilot",
       external: true,
     },
+    image: {
+      src: "/work/fpl-squadpilot.webp",
+      alt: "Three SquadPilot screens: the transfer planner, the league table and a live gameweek squad",
+      width: 1600,
+      height: 900,
+    },
   },
   {
     slug: "ari-gold-bot",
@@ -43,6 +40,31 @@ export const projects: readonly Project[] = [
       href: "https://www.mql5.com/en/market/product/188554",
       external: true,
     },
+    image: {
+      src: "/work/ari-gold-bot.webp",
+      alt: "The Ari Gold Bot product mark",
+      width: 1280,
+      height: 720,
+    },
+  },
+  {
+    slug: "dealzako",
+    name: "DealZako",
+    summary:
+      "A platform for real estate brokers — listings, deals and commissions out of WhatsApp threads and into one place. I led a team of three; live, and in pilot with Eliberts Real Estate.",
+    stack: ["Team lead", "Real estate", "Live"],
+    status: "live",
+    link: {
+      label: "Visit dealzako.com",
+      href: "https://www.dealzako.com",
+      external: true,
+    },
+    image: {
+      src: "/work/dealzako.webp",
+      alt: "The DealZako brand mark and strapline",
+      width: 1200,
+      height: 630,
+    },
   },
   {
     slug: "phronesis",
@@ -53,27 +75,11 @@ export const projects: readonly Project[] = [
     status: "in-progress",
   },
   {
-    slug: "dealzako",
-    name: "DealZako",
-    summary:
-      "A platform for real estate brokers — listings, deals and commissions out of WhatsApp threads and into one place. I led a team of three; in pilot with Eliberts Real Estate.",
-    stack: ["Team lead", "Real estate", "In pilot"],
-    status: "pilot",
-  },
-  {
     slug: "fast-savers",
     name: "Fast Savers",
     summary:
       "A loan management system for a savings business. Lead developer on the first release, and through acceptance testing with the 10+ agents who work in it daily.",
     stack: ["Lead developer", "Fintech", "Live since 2024"],
-    status: "internal",
-  },
-  {
-    slug: "inventory-management-system",
-    name: "Inventory Management System",
-    summary:
-      "The platform Klan Logistics runs on. Moved off a monolith onto containerised services and wired into Dynamics 365. Uptime up 50%, outside-vendor dependency down 80%, 200+ officers trained.",
-    stack: ["Docker", "GitHub Actions", "Dynamics 365"],
     status: "internal",
   },
 ] as const;
