@@ -23,7 +23,7 @@ export const profile = {
   /** The About page, in the order the paragraphs appear. */
   biography: [
     "I care about what happens after the launch. Most of my work is the middle part — a monolith moved onto containers, an integration that finally makes two systems talk, a pipeline that makes releases boring.",
-    "At Klan Logistics I own uptime for the applications the business runs on. The rest of the time I build my own things. SquadPilot came from wanting a better answer to my own FPL transfers; Ari Gold Bot from wanting to know whether a strategy survives a live market. Both have users who aren't me.",
+    "By day I keep a logistics company's platforms up. The rest of the time I build my own things. SquadPilot came from wanting a better answer to my own FPL transfers; Ari Gold Bot from wanting to know whether a strategy survives a live market. Both have users who aren't me.",
   ],
 
   /** The label/value rows on the About page. */
