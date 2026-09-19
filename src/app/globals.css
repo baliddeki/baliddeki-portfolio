@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Design tokens
+   Mirrored from the Figma source of truth. Every colour, family and step in
+   the type scale is declared once here and consumed as a Tailwind utility —
+   there are no raw hex values or font sizes anywhere else in the codebase.
+--------------------------------------------------------------------------- */
+@theme {
+  /* Palette */
+  --color-canvas: #f3f3f3;
+  --color-ink: #181717;
+  --color-muted: #606060;
+  --color-accent: #2429af;
+  --color-placeholder: #e7e7e5;
+
+  /* Families — the variables are injected by next/font in app/layout.tsx */
+  --font-display: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Type scale.
+     Each step is fluid: it interpolates between a comfortable phone size and
+     the exact Figma desktop size, so there is no breakpoint at which the
+     layout visibly "jumps". The upper bound of every clamp() is the value
+     taken from the design. */
+  --text-display: clamp(2.5rem, 1.55rem + 4.22vw, 3.75rem); /* → 60px */
+  --text-display--line-height: 0.972;
+  --text-display--letter-spacing: -0.03em;
+
+  --text-lead: clamp(1.5rem, 1.12rem + 1.69vw, 2rem); /* → 32px */
+  --text-lead--line-height: 1.17;
+  --text-lead--letter-spacing: -0.03em;
+
+  --text-nav: clamp(1rem, 0.76rem + 1.06vw, 1.3125rem); /* → 21px */
+  --text-nav--line-height: 1.2;
+  --text-nav--letter-spacing: -0.03em;
+
+  --text-body: clamp(1rem, 0.91rem + 0.42vw, 1.125rem); /* → 18px */
+  --text-body--line-height: 1.215;
+  --text-body--letter-spacing: -0.03em;
+
+  --text-sub: 0.875rem; /* 14px — small print stays fixed for legibility */
+  --text-sub--line-height: 1.215;
+  --text-sub--letter-spacing: -0.03em;
+
+  /* Structure */
+  --spacing-gutter: clamp(1.25rem, 0.87rem + 1.7vw, 2.5rem);
+  --spacing-shell: 70rem; /* 1120px — the Figma content column */
+}
+
+/* ---------------------------------------------------------------------------
+   Base layer
+--------------------------------------------------------------------------- */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* Guards against any single long token (a URL, a package name) forcing a
+       horizontal scrollbar on a narrow phone. */
+    overflow-wrap: break-word;
+  }
+
+  /* A single, consistent focus treatment for every interactive element. */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-canvas);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Utilities
+--------------------------------------------------------------------------- */
+@utility page-gutter {
+  /* The content column's side margin. `viewport-fit=cover` lets the document
+     extend into the display cutout on notched phones, so the gutter takes
+     whichever is larger: the design's margin, or the safe area. */
+  padding-inline: max(
+    var(--spacing-gutter),
+    env(safe-area-inset-left),
+    env(safe-area-inset-right)
+  );
+}
+
+@utility rule {
+  /* The hairline separator used between sections and project entries. */
+  border-bottom: 1.5px solid var(--color-ink);
+}
+
+@utility link-underline {
+  /* Underline that grows from the left on hover — the one piece of motion on
+     the site, and it is CSS-only. */
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  transition: background-size 250ms ease;
+
+  &:hover {
+    background-size: 0 1px;
+  }
+}
